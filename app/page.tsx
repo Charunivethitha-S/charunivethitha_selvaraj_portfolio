@@ -27,7 +27,15 @@ import {
 export default function Home() {
   const [projectIndex, setProjectIndex] = useState(0);
 
+  /* ============================================================
+     PROJECT DATA
+     ------------------------------------------------------------
+     Featured projects appear in the main carousel.
+     All other projects automatically appear below it.
+     ============================================================ */
+
   const featuredProjects = projects.filter((p) => p.featured);
+  const additionalProjects = projects.filter((p) => !p.featured);
 
   const project =
     featuredProjects.length > 0
@@ -35,20 +43,17 @@ export default function Home() {
       : null;
 
   const nextProject = () =>
-    setProjectIndex(
-      (i) =>
-        featuredProjects.length > 0
-          ? (i + 1) % featuredProjects.length
-          : 0
+    setProjectIndex((i) =>
+      featuredProjects.length > 0
+        ? (i + 1) % featuredProjects.length
+        : 0
     );
 
   const prevProject = () =>
-    setProjectIndex(
-      (i) =>
-        featuredProjects.length > 0
-          ? (i - 1 + featuredProjects.length) %
-            featuredProjects.length
-          : 0
+    setProjectIndex((i) =>
+      featuredProjects.length > 0
+        ? (i - 1 + featuredProjects.length) % featuredProjects.length
+        : 0
     );
 
   return (
@@ -57,7 +62,10 @@ export default function Home() {
 
       <main>
 
-        {/* ================= HERO ================= */}
+        {/* ========================================================
+            HERO
+            ======================================================== */}
+
         <section className="hero" id="home">
           <div className="container hero-grid">
 
@@ -262,7 +270,6 @@ export default function Home() {
                   pointerEvents: "none",
                 }}
               />
-
             </div>
           </div>
 
@@ -272,7 +279,10 @@ export default function Home() {
         </section>
 
 
-        {/* ================= MARQUEE ================= */}
+        {/* ========================================================
+            MARQUEE
+            ======================================================== */}
+
         <div className="marquee">
           <div className="marquee-track">
             <span>VLSI</span>
@@ -295,7 +305,10 @@ export default function Home() {
         </div>
 
 
-        {/* ================= 01 EXECUTIVE SUMMARY ================= */}
+        {/* ========================================================
+            01 EXECUTIVE SUMMARY
+            ======================================================== */}
+
         <section className="section compact" id="summary">
           <div className="container">
 
@@ -324,7 +337,10 @@ export default function Home() {
         </section>
 
 
-        {/* ================= 02 ABOUT ================= */}
+        {/* ========================================================
+            02 ABOUT
+            ======================================================== */}
+
         <section className="section compact" id="about">
           <div className="container">
 
@@ -390,7 +406,10 @@ export default function Home() {
         </section>
 
 
-        {/* ================= 03 FEATURED PROJECTS ================= */}
+        {/* ========================================================
+            03 FEATURED PROJECTS
+            ======================================================== */}
+
         <section className="section" id="projects">
           <div className="container">
 
@@ -451,12 +470,58 @@ export default function Home() {
                 </>
               )}
 
+              {!project && (
+                <div className="credential">
+                  <p>No featured projects added yet.</p>
+                </div>
+              )}
+
             </div>
+
+
+            {/* ====================================================
+                ADDITIONAL / ACADEMIC PROJECTS
+
+                Automatically displays every project where:
+                featured: false
+                ==================================================== */}
+
+            {additionalProjects.length > 0 && (
+              <div style={{ marginTop: "90px" }}>
+
+                <div className="section-kicker">
+                  academic & additional projects
+                </div>
+
+                <div
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns:
+                      "repeat(auto-fit, minmax(280px, 1fr))",
+                    gap: "20px",
+                    marginTop: "28px",
+                  }}
+                >
+                  {additionalProjects.map((project, index) => (
+                    <ProjectCard
+                      key={project.slug}
+                      project={project}
+                      index={index}
+                    />
+                  ))}
+                </div>
+
+              </div>
+            )}
+
           </div>
         </section>
 
 
-        {/* ================= 04 RESEARCH ================= */}
+        {/* ========================================================
+            04 RESEARCH
+            ======================================================== */}
+
         <section className="section compact" id="research">
           <div className="container">
 
@@ -498,7 +563,10 @@ export default function Home() {
         </section>
 
 
-        {/* ================= 05 EXPERIENCE ================= */}
+        {/* ========================================================
+            05 EXPERIENCE
+            ======================================================== */}
+
         <section className="section compact" id="experience">
           <div className="container">
 
@@ -550,7 +618,10 @@ export default function Home() {
         </section>
 
 
-        {/* ================= 06 CERTIFICATES ================= */}
+        {/* ========================================================
+            06 CERTIFICATES
+            ======================================================== */}
+
         <section className="section compact" id="certificates">
           <div className="container">
 
@@ -561,32 +632,52 @@ export default function Home() {
             />
 
             <div className="horizontal-cards">
-              {certificates.map((certificate, i) => (
-                <div
-                  className="credential"
-                  key={`${certificate.title}-${i}`}
-                >
+
+              {certificates.length > 0 ? (
+                certificates.map((certificate, i) => (
+                  <div
+                    className="credential"
+                    key={`${certificate.title}-${i}`}
+                  >
+                    <span className="mono">
+                      CERTIFICATE{" "}
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+
+                    <h3>{certificate.title}</h3>
+
+                    <p>{certificate.issuer}</p>
+
+                    <small>
+                      {certificate.category} · {certificate.date}
+                    </small>
+                  </div>
+                ))
+              ) : (
+                <div className="credential">
                   <span className="mono">
-                    CERTIFICATE{" "}
-                    {String(i + 1).padStart(2, "0")}
+                    CERTIFICATES
                   </span>
 
-                  <h3>{certificate.title}</h3>
+                  <h3>Certificates will be added here.</h3>
 
-                  <p>{certificate.issuer}</p>
-
-                  <small>
-                    {certificate.category} · {certificate.date}
-                  </small>
+                  <p>
+                    Add your technical certifications, workshops and
+                    training programs in the portfolio content file.
+                  </p>
                 </div>
-              ))}
+              )}
+
             </div>
 
           </div>
         </section>
 
 
-        {/* ================= 07 HACKATHONS & EVENTS ================= */}
+        {/* ========================================================
+            07 HACKATHONS & EVENTS
+            ======================================================== */}
+
         <section
           className="section compact"
           id="participation"
@@ -631,7 +722,10 @@ export default function Home() {
         </section>
 
 
-        {/* ================= 08 CONTACT ================= */}
+        {/* ========================================================
+            08 CONTACT
+            ======================================================== */}
+
         <section
           className="section"
           id="contact"
@@ -697,7 +791,10 @@ export default function Home() {
       </main>
 
 
-      {/* ================= FOOTER ================= */}
+      {/* ==========================================================
+          FOOTER
+          ========================================================== */}
+
       <footer className="footer">
         <div className="container footer-row">
 
