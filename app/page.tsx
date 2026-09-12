@@ -7,10 +7,8 @@ import {
   Mail,
   Github,
   Linkedin,
-  ExternalLink,
   ChevronLeft,
   ChevronRight,
-  Sparkles,
 } from "lucide-react";
 
 import Nav from "@/components/Nav";
@@ -21,25 +19,11 @@ import ProjectCard from "@/components/ProjectCard";
 import {
   projects,
   experiences,
-  publications,
-  certificates,
   events,
-  achievements,
-  skills,
 } from "@/lib/content";
-
-const workTabs = [
-  "Experience",
-  "Research",
-  "Skills",
-  "Certificates",
-  "Events",
-  "Achievements",
-];
 
 export default function Home() {
   const [projectIndex, setProjectIndex] = useState(0);
-  const [activeTab, setActiveTab] = useState("Experience");
 
   const featuredProjects = projects.filter((p) => p.featured);
 
@@ -63,22 +47,20 @@ export default function Home() {
       <Nav />
 
       <main>
+
         {/* ================= HERO ================= */}
         <section className="hero" id="home">
           <div className="container hero-grid">
 
-            {/* LEFT SIDE */}
+            {/* LEFT */}
             <div>
               <div className="eyebrow">
                 <span className="pulse" />
                 Electronics & Communication Engineering · VLSI Focus
               </div>
 
-              <h1>
-                Hardware
-                <br />
-                <span>that thinks.</span>
-              </h1>
+              <h1>CHARUNIVETHITHA S</h1>
+<p>Hardware Engineer.</p>
 
               <p className="hero-copy">
                 I&apos;m{" "}
@@ -90,7 +72,7 @@ export default function Home() {
               </p>
 
               <div className="actions">
-                <a className="btn primary" href="#work">
+                <a className="btn primary" href="#projects">
                   Explore my work
                   <ArrowDownRight size={16} />
                 </a>
@@ -120,7 +102,7 @@ export default function Home() {
             </div>
 
 
-            {/* ================= HERO HARDWARE + PHOTO ================= */}
+            {/* HARDWARE + PHOTO */}
             <div
               className="hero-side"
               style={{
@@ -132,7 +114,7 @@ export default function Home() {
               }}
             >
 
-              {/* HARDWARE VISUAL — BEHIND THE PHOTO */}
+              {/* Hardware visual behind photo */}
               <div
                 style={{
                   position: "absolute",
@@ -146,8 +128,7 @@ export default function Home() {
                 <HeroVisual />
               </div>
 
-
-              {/* SUBTLE HARDWARE GRID / CIRCUIT BACKGROUND */}
+              {/* Hardware grid */}
               <div
                 style={{
                   position: "absolute",
@@ -168,8 +149,7 @@ export default function Home() {
                 }}
               />
 
-
-              {/* CIRCUIT LINE — BEHIND PHOTO */}
+              {/* Circuit line */}
               <div
                 style={{
                   position: "absolute",
@@ -185,8 +165,7 @@ export default function Home() {
                 }}
               />
 
-
-              {/* PHOTO — FRONT LAYER */}
+              {/* Photo */}
               <div
                 className="portrait-frame"
                 style={{
@@ -199,7 +178,6 @@ export default function Home() {
                     "0 25px 70px rgba(0,0,0,0.5), 0 0 35px rgba(61,210,255,0.12)",
                 }}
               >
-
                 <div className="portrait-glow" />
 
                 <img
@@ -215,7 +193,6 @@ export default function Home() {
                   }}
                 />
 
-                {/* PHOTO LABEL */}
                 <div
                   className="portrait-tag"
                   style={{
@@ -229,8 +206,7 @@ export default function Home() {
                 </div>
               </div>
 
-
-              {/* SMALL CHIP MARKER */}
+              {/* Chip marker */}
               <div
                 style={{
                   position: "absolute",
@@ -247,7 +223,7 @@ export default function Home() {
                 }}
               />
 
-              {/* CIRCUIT NODE */}
+              {/* Circuit node */}
               <div
                 style={{
                   position: "absolute",
@@ -296,37 +272,112 @@ export default function Home() {
         </div>
 
 
-        {/* ================= ABOUT ================= */}
-        <section className="section compact" id="about">
-          <div className="container about-strip">
-            <div>
-              <div className="section-kicker">
-                01 — about
-              </div>
+        {/* ================= 01 EXECUTIVE SUMMARY ================= */}
+        <section className="section compact" id="summary">
+          <div className="container">
 
-              <h2>
-                Silicon-minded engineering with an AI edge.
-              </h2>
+            <div className="section-kicker">
+              01 — executive summary
             </div>
 
-            <p>
-              I enjoy translating algorithms into datapaths,
-              architectures and FPGA prototypes — from RTL and
-              digital design through hardware acceleration and
-              security.
-            </p>
+            <div className="summary-box">
+              <h2>
+                Electronics engineering focused on
+                <span> intelligent hardware.</span>
+              </h2>
+
+              <p>
+                Third-year Electronics and Communication Engineering
+                student focused on VLSI and semiconductor engineering,
+                with hands-on experience in RTL design, FPGA-based
+                hardware acceleration, Edge AI, neuromorphic computing
+                and hardware security. My work centers on translating
+                algorithms into efficient digital architectures,
+                developing hardware IP and building practical FPGA
+                prototypes.
+              </p>
+            </div>
+
           </div>
         </section>
 
 
-        {/* ================= PROJECTS ================= */}
-        <section className="section" id="work">
+        {/* ================= 02 ABOUT ================= */}
+        <section className="section compact" id="about">
+          <div className="container">
+
+            <div
+              className="about-strip"
+              style={{
+                display: "grid",
+                gridTemplateColumns: "1fr 1fr",
+                gap: "clamp(40px, 7vw, 100px)",
+                alignItems: "stretch",
+              }}
+            >
+
+              {/* LEFT */}
+              <div>
+                <div className="section-kicker">
+                  02 — about
+                </div>
+
+                <h2>
+                  Silicon-minded engineering
+                  with an AI edge.
+                </h2>
+              </div>
+
+              {/* RIGHT */}
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                }}
+              >
+                <p
+                  style={{
+                    margin: 0,
+                    lineHeight: 1.85,
+                  }}
+                >
+                  I am an Electronics and Communication Engineering
+                  student with a strong interest in VLSI and
+                  semiconductor engineering. My technical journey
+                  focuses on connecting digital design with intelligent
+                  computing, particularly through RTL design, FPGA
+                  acceleration, Edge AI, neuromorphic architectures
+                  and hardware security. I enjoy taking an algorithm
+                  or computational idea and understanding how it can
+                  be transformed into an efficient hardware
+                  architecture. My work includes neural-network
+                  accelerators, spiking neural-network implementations,
+                  cryptographic hardware and FPGA-based systems.
+                  Through academic projects, research and technical
+                  participation, I have been building practical
+                  experience across Verilog, FPGA development,
+                  hardware-software co-design and digital system
+                  architecture. I am particularly interested in
+                  opportunities where I can contribute to the design
+                  and implementation of next-generation semiconductor
+                  and intelligent hardware systems.
+                </p>
+              </div>
+
+            </div>
+
+          </div>
+        </section>
+
+
+        {/* ================= 03 FEATURED PROJECTS ================= */}
+        <section className="section" id="projects">
           <div className="container">
 
             <SectionHeader
-              kicker="02 — selected work"
+              kicker="03 — featured projects"
               title="Built in hardware."
-              text="Browse the work without a long page. Use the controls to move through projects."
+              text="Selected work across VLSI, FPGA acceleration, Edge AI, neuromorphic computing and hardware security."
             />
 
             <div className="project-browser">
@@ -383,223 +434,98 @@ export default function Home() {
         </section>
 
 
-        {/* ================= ENGINEERING JOURNEY ================= */}
-        <section
-          className="section compact"
-          id="journey"
-        >
+        {/* ================= 04 EXPERIENCE ================= */}
+        <section className="section compact" id="experience">
           <div className="container">
 
-            <div className="tab-shell">
+            <SectionHeader
+              kicker="04 — experience"
+              title="Where I build and learn."
+              text="Research and engineering experience that shaped my approach to hardware design."
+            />
 
-              <div className="tab-head">
-
-                <div>
-                  <div className="section-kicker">
-                    03 — engineering journey
+            <div className="timeline">
+              {experiences.map((e) => (
+                <div
+                  className="timeline-item"
+                  key={e.organization}
+                >
+                  <div className="date">
+                    {e.start_date} —{" "}
+                    {e.end_date || "Present"}
                   </div>
 
-                  <h2>
-                    Everything in one workspace.
-                  </h2>
-                </div>
+                  <h3>{e.organization}</h3>
 
-                <div className="tab-scroller">
-                  {workTabs.map((tab) => (
-                    <button
-                      key={tab}
-                      className={
-                        activeTab === tab
-                          ? "selected"
-                          : ""
-                      }
-                      onClick={() =>
-                        setActiveTab(tab)
-                      }
-                    >
-                      {tab}
-                    </button>
-                  ))}
-                </div>
-
-              </div>
-
-
-              <div className="tab-panel">
-
-                {/* EXPERIENCE */}
-                {activeTab === "Experience" && (
-                  <div className="timeline">
-                    {experiences.map((e) => (
-                      <div
-                        className="timeline-item"
-                        key={e.organization}
-                      >
-                        <div className="date">
-                          {e.start_date} —{" "}
-                          {e.end_date || "Present"}
-                        </div>
-
-                        <h3>{e.organization}</h3>
-
-                        <div
-                          style={{
-                            fontWeight: 700,
-                            marginBottom: 10,
-                          }}
-                        >
-                          {e.role}
-                        </div>
-
-                        <p>{e.description}</p>
-
-                        <div className="tags">
-                          {e.technologies.map((t) => (
-                            <span
-                              className="tag"
-                              key={t}
-                            >
-                              {t}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    ))}
+                  <div
+                    style={{
+                      fontWeight: 700,
+                      marginBottom: 10,
+                    }}
+                  >
+                    {e.role}
                   </div>
-                )}
 
+                  <p>{e.description}</p>
 
-                {/* RESEARCH */}
-                {activeTab === "Research" && (
-                  <div className="research-list">
-                    {publications.map((p) => (
-                      <article
-                        className="research"
-                        key={p.title}
-                      >
-                        <div className="research-meta">
-                          <span>{p.status}</span>
-                          <span>{p.venue}</span>
-                          <span>
-                            {p.paper_id
-                              ? `Paper ID ${p.paper_id}`
-                              : p.year}
-                          </span>
-                        </div>
-
-                        <h3>{p.title}</h3>
-
-                        <p>{p.abstract}</p>
-
-                        {p.pdf_url && (
-                          <a
-                            className="btn"
-                            href={p.pdf_url}
-                          >
-                            View paper
-                            <ExternalLink size={14} />
-                          </a>
-                        )}
-                      </article>
-                    ))}
-                  </div>
-                )}
-
-
-                {/* SKILLS */}
-                {activeTab === "Skills" && (
-                  <div className="skill-cloud">
-                    {skills.map((s) => (
+                  <div className="tags">
+                    {e.technologies.map((t) => (
                       <span
-                        className="skill"
-                        key={s}
+                        className="tag"
+                        key={t}
                       >
-                        {s}
+                        {t}
                       </span>
                     ))}
                   </div>
-                )}
-
-
-                {/* CERTIFICATES */}
-                {activeTab === "Certificates" && (
-                  <div className="horizontal-cards">
-                    {certificates.map((c, i) => (
-                      <div
-                        className="credential"
-                        key={i}
-                      >
-                        <span className="mono">
-                          CERT{" "}
-                          {String(i + 1).padStart(2, "0")}
-                        </span>
-
-                        <Sparkles size={18} />
-
-                        <h3>{c.title}</h3>
-
-                        <p>{c.issuer}</p>
-
-                        <small>
-                          {c.category} · {c.date}
-                        </small>
-                      </div>
-                    ))}
-                  </div>
-                )}
-
-
-                {/* EVENTS */}
-                {activeTab === "Events" && (
-                  <div className="horizontal-cards">
-                    {events.map((e, i) => (
-                      <div
-                        className="credential"
-                        key={e.title}
-                      >
-                        <span className="mono">
-                          EVENT{" "}
-                          {String(i + 1).padStart(2, "0")}
-                        </span>
-
-                        <Sparkles size={18} />
-
-                        <h3>{e.title}</h3>
-
-                        <p>{e.description}</p>
-
-                        <small>
-                          {e.organizer} · {e.date}
-                        </small>
-                      </div>
-                    ))}
-                  </div>
-                )}
-
-
-                {/* ACHIEVEMENTS */}
-                {activeTab === "Achievements" && (
-                  <div className="achievement-grid">
-                    {achievements.map((a) => (
-                      <div
-                        className="achievement"
-                        key={a.label}
-                      >
-                        <b>{a.value}</b>
-                        <strong>{a.label}</strong>
-                        <span>{a.detail}</span>
-                      </div>
-                    ))}
-                  </div>
-                )}
-
-              </div>
+                </div>
+              ))}
             </div>
+
           </div>
         </section>
 
 
-        {/* ================= CONTACT ================= */}
+        {/* ================= 05 HACKATHONS ================= */}
+        <section
+          className="section compact"
+          id="participation"
+        >
+          <div className="container">
+
+            <SectionHeader
+              kicker="05 — hackathons & technical participation"
+              title="Beyond the classroom."
+              text="Technical events, hackathons and collaborative engineering experiences."
+            />
+
+            <div className="horizontal-cards">
+              {events.map((e, i) => (
+                <div
+                  className="credential"
+                  key={e.title}
+                >
+                  <span className="mono">
+                    EVENT{" "}
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+
+                  <h3>{e.title}</h3>
+
+                  <p>{e.description}</p>
+
+                  <small>
+                    {e.organizer} · {e.date}
+                  </small>
+                </div>
+              ))}
+            </div>
+
+          </div>
+        </section>
+
+
+        {/* ================= 06 CONTACT ================= */}
         <section
           className="section"
           id="contact"
@@ -610,7 +536,7 @@ export default function Home() {
 
               <div>
                 <div className="section-kicker">
-                  04 — contact
+                  06 — contact
                 </div>
 
                 <h2>
@@ -656,6 +582,7 @@ export default function Home() {
       {/* ================= FOOTER ================= */}
       <footer className="footer">
         <div className="container footer-row">
+
           <span>
             © {new Date().getFullYear()} CHARUNIVETHITHA S
           </span>
@@ -663,6 +590,7 @@ export default function Home() {
           <span className="mono">
             VLSI · RTL · FPGA · EDGE AI · SECURITY
           </span>
+
         </div>
       </footer>
     </>
