@@ -19,6 +19,8 @@ import ProjectCard from "@/components/ProjectCard";
 import {
   projects,
   experiences,
+  publications,
+  certificates,
   events,
 } from "@/lib/content";
 
@@ -28,18 +30,25 @@ export default function Home() {
   const featuredProjects = projects.filter((p) => p.featured);
 
   const project =
-    featuredProjects[projectIndex % featuredProjects.length];
+    featuredProjects.length > 0
+      ? featuredProjects[projectIndex % featuredProjects.length]
+      : null;
 
   const nextProject = () =>
     setProjectIndex(
-      (i) => (i + 1) % featuredProjects.length
+      (i) =>
+        featuredProjects.length > 0
+          ? (i + 1) % featuredProjects.length
+          : 0
     );
 
   const prevProject = () =>
     setProjectIndex(
       (i) =>
-        (i - 1 + featuredProjects.length) %
-        featuredProjects.length
+        featuredProjects.length > 0
+          ? (i - 1 + featuredProjects.length) %
+            featuredProjects.length
+          : 0
     );
 
   return (
@@ -68,12 +77,12 @@ export default function Home() {
                 <strong style={{ color: "white" }}>
                   Charunivethitha S
                 </strong>{" "}
-                — an ECE graduate specializing in RTL design, FPGA-based
-                prototyping, and VLSI architectures. Hands-on experience in
-                designing pipelined hardware architectures for post-quantum
-                cryptography and neural network accelerators, along with
-                exposure to SoC integration, hardware-software co-design,
-                DFT and RTL-to-GDSII flow.
+                — an Electronics and Communication Engineering student
+                specializing in RTL design, FPGA-based prototyping, and
+                VLSI architectures. My work focuses on pipelined hardware
+                architectures for post-quantum cryptography and neural
+                network accelerators, with exposure to SoC integration,
+                hardware-software co-design, DFT, and RTL-to-GDSII flow.
               </p>
 
               <div className="actions">
@@ -88,9 +97,7 @@ export default function Home() {
                 </a>
               </div>
 
-              {/* SOCIAL LINKS */}
               <div className="hero-socials">
-
                 <a
                   href="https://www.linkedin.com/in/charunivethitha17"
                   target="_blank"
@@ -115,10 +122,8 @@ export default function Home() {
                 >
                   <Mail size={17} />
                 </a>
-
               </div>
             </div>
-
 
             {/* HARDWARE + PHOTO */}
             <div
@@ -308,8 +313,8 @@ export default function Home() {
                 Electronics and Communication Engineering student focused
                 on VLSI and semiconductor engineering, with hands-on
                 experience in RTL design, FPGA-based hardware acceleration,
-                Edge AI, neuromorphic computing and hardware security. My
-                work centers on translating algorithms into efficient
+                Edge AI, neuromorphic computing and hardware security.
+                My work centers on translating algorithms into efficient
                 digital architectures, developing hardware IP and building
                 practical FPGA prototypes.
               </p>
@@ -397,64 +402,108 @@ export default function Home() {
 
             <div className="project-browser">
 
-              <div className="project-controls">
+              {project && (
+                <>
+                  <div className="project-controls">
 
-                <button
-                  onClick={prevProject}
-                  aria-label="Previous project"
-                >
-                  <ChevronLeft size={18} />
-                </button>
+                    <button
+                      onClick={prevProject}
+                      aria-label="Previous project"
+                    >
+                      <ChevronLeft size={18} />
+                    </button>
 
-                <div>
-                  <span className="mono">
-                    PROJECT{" "}
-                    {String(projectIndex + 1).padStart(2, "0")}
-                    {" / "}
-                    {String(featuredProjects.length).padStart(2, "0")}
-                  </span>
+                    <div>
+                      <span className="mono">
+                        PROJECT{" "}
+                        {String(projectIndex + 1).padStart(2, "0")}
+                        {" / "}
+                        {String(featuredProjects.length).padStart(2, "0")}
+                      </span>
 
-                  <div className="project-dots">
-                    {featuredProjects.map((p, i) => (
-                      <button
-                        key={p.slug}
-                        className={
-                          i === projectIndex ? "active" : ""
-                        }
-                        onClick={() =>
-                          setProjectIndex(i)
-                        }
-                        aria-label={p.title}
-                      />
-                    ))}
+                      <div className="project-dots">
+                        {featuredProjects.map((p, i) => (
+                          <button
+                            key={p.slug}
+                            className={
+                              i === projectIndex ? "active" : ""
+                            }
+                            onClick={() => setProjectIndex(i)}
+                            aria-label={p.title}
+                          />
+                        ))}
+                      </div>
+                    </div>
+
+                    <button
+                      onClick={nextProject}
+                      aria-label="Next project"
+                    >
+                      <ChevronRight size={18} />
+                    </button>
+
                   </div>
-                </div>
 
-                <button
-                  onClick={nextProject}
-                  aria-label="Next project"
-                >
-                  <ChevronRight size={18} />
-                </button>
-
-              </div>
-
-              <ProjectCard
-                project={project}
-                index={projectIndex}
-              />
+                  <ProjectCard
+                    project={project}
+                    index={projectIndex}
+                  />
+                </>
+              )}
 
             </div>
           </div>
         </section>
 
 
-        {/* ================= 04 EXPERIENCE ================= */}
+        {/* ================= 04 RESEARCH ================= */}
+        <section className="section compact" id="research">
+          <div className="container">
+
+            <SectionHeader
+              kicker="04 — research"
+              title="Research with a hardware direction."
+              text="Research work exploring low-latency cryptographic hardware and quantum-resistant embedded systems."
+            />
+
+            <div className="horizontal-cards">
+              {publications.map((publication, i) => (
+                <div
+                  className="credential"
+                  key={publication.title}
+                >
+                  <span className="mono">
+                    PAPER {String(i + 1).padStart(2, "0")}
+                  </span>
+
+                  <h3>{publication.title}</h3>
+
+                  <p>{publication.abstract}</p>
+
+                  <small>
+                    {publication.venue} · {publication.year} ·{" "}
+                    {publication.status}
+                  </small>
+
+                  {publication.paper_id && (
+                    <small>
+                      Paper ID: {publication.paper_id}
+                    </small>
+                  )}
+                </div>
+              ))}
+            </div>
+
+          </div>
+        </section>
+
+
+        {/* ================= 05 EXPERIENCE ================= */}
         <section className="section compact" id="experience">
           <div className="container">
 
             <SectionHeader
-              kicker="04 — experience"
+              kicker="05 — experience"
               title="Where I build and learn."
               text="Research and engineering experience that shaped my approach to hardware design."
             />
@@ -501,7 +550,43 @@ export default function Home() {
         </section>
 
 
-        {/* ================= 05 HACKATHONS ================= */}
+        {/* ================= 06 CERTIFICATES ================= */}
+        <section className="section compact" id="certificates">
+          <div className="container">
+
+            <SectionHeader
+              kicker="06 — certificates"
+              title="Learning beyond the syllabus."
+              text="Technical certifications, workshops and training relevant to VLSI, FPGA and hardware engineering."
+            />
+
+            <div className="horizontal-cards">
+              {certificates.map((certificate, i) => (
+                <div
+                  className="credential"
+                  key={`${certificate.title}-${i}`}
+                >
+                  <span className="mono">
+                    CERTIFICATE{" "}
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+
+                  <h3>{certificate.title}</h3>
+
+                  <p>{certificate.issuer}</p>
+
+                  <small>
+                    {certificate.category} · {certificate.date}
+                  </small>
+                </div>
+              ))}
+            </div>
+
+          </div>
+        </section>
+
+
+        {/* ================= 07 HACKATHONS & EVENTS ================= */}
         <section
           className="section compact"
           id="participation"
@@ -509,7 +594,7 @@ export default function Home() {
           <div className="container">
 
             <SectionHeader
-              kicker="05 — hackathons & technical participation"
+              kicker="07 — hackathons & technical participation"
               title="Beyond the classroom."
               text="Technical events, hackathons and collaborative engineering experiences."
             />
@@ -532,6 +617,12 @@ export default function Home() {
                   <small>
                     {e.organizer} · {e.date}
                   </small>
+
+                  {e.role && (
+                    <small>
+                      {e.role}
+                    </small>
+                  )}
                 </div>
               ))}
             </div>
@@ -540,7 +631,7 @@ export default function Home() {
         </section>
 
 
-        {/* ================= 06 CONTACT ================= */}
+        {/* ================= 08 CONTACT ================= */}
         <section
           className="section"
           id="contact"
@@ -551,7 +642,7 @@ export default function Home() {
 
               <div>
                 <div className="section-kicker">
-                  06 — contact
+                  08 — contact
                 </div>
 
                 <h2>
@@ -569,7 +660,6 @@ export default function Home() {
 
               <div className="actions">
 
-                {/* EMAIL */}
                 <a
                   className="btn primary"
                   href="mailto:charunivethithas@gmail.com"
@@ -578,7 +668,6 @@ export default function Home() {
                   <Mail size={15} />
                 </a>
 
-                {/* LINKEDIN */}
                 <a
                   className="btn"
                   href="https://www.linkedin.com/in/charunivethitha17"
@@ -589,7 +678,6 @@ export default function Home() {
                   <ArrowUpRight size={15} />
                 </a>
 
-                {/* GITHUB */}
                 <a
                   className="btn"
                   href="https://github.com/Charunivethitha-S"
