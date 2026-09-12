@@ -60,15 +60,20 @@ export default function Home() {
               </div>
 
               <h1>CHARUNIVETHITHA S</h1>
-<p>Hardware Engineer.</p>
+
+              <p>Hardware Engineer.</p>
 
               <p className="hero-copy">
                 I&apos;m{" "}
                 <strong style={{ color: "white" }}>
                   Charunivethitha S
                 </strong>{" "}
-                — an ECE engineer focused on VLSI, RTL, FPGA computing,
-                Edge AI, neuromorphic architectures and hardware security.
+                — an ECE graduate specializing in RTL design, FPGA-based
+                prototyping, and VLSI architectures. Hands-on experience in
+                designing pipelined hardware architectures for post-quantum
+                cryptography and neural network accelerators, along with
+                exposure to SoC integration, hardware-software co-design,
+                DFT and RTL-to-GDSII flow.
               </p>
 
               <div className="actions">
@@ -83,21 +88,34 @@ export default function Home() {
                 </a>
               </div>
 
+              {/* SOCIAL LINKS */}
               <div className="hero-socials">
-                <a href="#" aria-label="LinkedIn">
+
+                <a
+                  href="https://www.linkedin.com/in/charunivethitha17"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="LinkedIn"
+                >
                   <Linkedin size={17} />
                 </a>
 
-                <a href="#" aria-label="GitHub">
+                <a
+                  href="https://github.com/Charunivethitha-S"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="GitHub"
+                >
                   <Github size={17} />
                 </a>
 
                 <a
-                  href="mailto:your-email@example.com"
+                  href="mailto:charunivethithas@gmail.com"
                   aria-label="Email"
                 >
                   <Mail size={17} />
                 </a>
+
               </div>
             </div>
 
@@ -287,14 +305,13 @@ export default function Home() {
               </h2>
 
               <p>
-                Third-year Electronics and Communication Engineering
-                student focused on VLSI and semiconductor engineering,
-                with hands-on experience in RTL design, FPGA-based
-                hardware acceleration, Edge AI, neuromorphic computing
-                and hardware security. My work centers on translating
-                algorithms into efficient digital architectures,
-                developing hardware IP and building practical FPGA
-                prototypes.
+                Electronics and Communication Engineering student focused
+                on VLSI and semiconductor engineering, with hands-on
+                experience in RTL design, FPGA-based hardware acceleration,
+                Edge AI, neuromorphic computing and hardware security. My
+                work centers on translating algorithms into efficient
+                digital architectures, developing hardware IP and building
+                practical FPGA prototypes.
               </p>
             </div>
 
@@ -342,25 +359,23 @@ export default function Home() {
                   }}
                 >
                   I am an Electronics and Communication Engineering
-                  student with a strong interest in VLSI and
-                  semiconductor engineering. My technical journey
-                  focuses on connecting digital design with intelligent
-                  computing, particularly through RTL design, FPGA
-                  acceleration, Edge AI, neuromorphic architectures
-                  and hardware security. I enjoy taking an algorithm
-                  or computational idea and understanding how it can
-                  be transformed into an efficient hardware
+                  student with a strong interest in VLSI and semiconductor
+                  engineering. My technical journey focuses on connecting
+                  digital design with intelligent computing, particularly
+                  through RTL design, FPGA acceleration, Edge AI,
+                  neuromorphic architectures and hardware security. I enjoy
+                  taking an algorithm or computational idea and understanding
+                  how it can be transformed into an efficient hardware
                   architecture. My work includes neural-network
                   accelerators, spiking neural-network implementations,
-                  cryptographic hardware and FPGA-based systems.
-                  Through academic projects, research and technical
-                  participation, I have been building practical
-                  experience across Verilog, FPGA development,
-                  hardware-software co-design and digital system
-                  architecture. I am particularly interested in
-                  opportunities where I can contribute to the design
-                  and implementation of next-generation semiconductor
-                  and intelligent hardware systems.
+                  cryptographic hardware and FPGA-based systems. Through
+                  academic projects, research and technical participation,
+                  I have been building practical experience across Verilog,
+                  FPGA development, hardware-software co-design and digital
+                  system architecture. I am particularly interested in
+                  opportunities where I can contribute to the design and
+                  implementation of next-generation semiconductor and
+                  intelligent hardware systems.
                 </p>
               </div>
 
@@ -554,20 +569,35 @@ export default function Home() {
 
               <div className="actions">
 
+                {/* EMAIL */}
                 <a
                   className="btn primary"
-                  href="mailto:your-email@example.com"
+                  href="mailto:charunivethithas@gmail.com"
                 >
                   Email me
                   <Mail size={15} />
                 </a>
 
+                {/* LINKEDIN */}
                 <a
                   className="btn"
-                  href="#"
+                  href="https://www.linkedin.com/in/charunivethitha17"
+                  target="_blank"
+                  rel="noreferrer"
                 >
                   LinkedIn
                   <ArrowUpRight size={15} />
+                </a>
+
+                {/* GITHUB */}
+                <a
+                  className="btn"
+                  href="https://github.com/Charunivethitha-S"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  GitHub
+                  <Github size={15} />
                 </a>
 
               </div>
